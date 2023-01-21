@@ -30,4 +30,4 @@ uses: CryptosoftInc/Cryptosoft-Nutrition-label@master
 
 ## Contributing
 
-Pull requests are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for more.
+Suggestions are welcome!.
