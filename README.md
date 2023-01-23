@@ -13,7 +13,7 @@ This GitHub action will create a a valid Software Bill-of-Materials (SBOM) conta
 
 ### `path`
 
-The path to a Node.js project, default is "./"
+The path to a project, default is "./"
 
 Be sure to quote paths with spaces.
 
