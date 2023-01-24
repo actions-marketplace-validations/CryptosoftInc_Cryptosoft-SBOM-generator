@@ -24,14 +24,15 @@ uses: CryptosoftInc/Cryptosoft-Nutrition-label@master
 ## To use this action, add it to your workflow file like this:
 on: push
 jobs:
-myJob:
-runs-on: ubuntu-latest
-steps:
-- name: Cryptosoft-Nutrition-label
-id: Cryptosoft-Nutrition-label
-uses: CryptosoftInc/Cryptosoft-Nutrition-label@master
-with:
-  root_directory: 'path/to/root/directory'
+  myJob:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Cryptosoft-Nutrition-label
+      id: Cryptosoft-Nutrition-label
+      uses: CryptosoftInc/Cryptosoft-Nutrition-label@master
+      with:
+        root_directory: 'path/to/root/directory'
+
   
 ## License
 
