@@ -2,13 +2,12 @@ name: 'Cryptosoft Generate Nutrition label from SBOM'
 author: Akshay kumar
 description: 'Github action to generate a Nutrition label from SBOM'
 inputs:
-  path:
-    description: 'The path to a Node.js project'
-    default: ./
-    required: false
-  output:
-    description: 'Output filename'
-    default: ""
-    required: false
+  root_directory:
+    description: 'The root directory of the repository'
+    required: true
+outputs:
+  website_link:
+    description: 'The link to the website'
+    required: true
 runs:
   using: 'node14'
