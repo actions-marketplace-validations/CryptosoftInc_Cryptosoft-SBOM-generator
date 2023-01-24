@@ -11,20 +11,18 @@ This GitHub action will create a a valid Software Bill-of-Materials (SBOM) conta
 
 ## Inputs
 
-### `path`
-
-The path to a project, default is "./"
-
-Be sure to quote paths with spaces.
+root directory
 
 ### `output`
 
 Output , default is web link
 
 ## Usage
+
 uses: CryptosoftInc/Cryptosoft-Nutrition-label@master
 
 ## To use this action, add it to your workflow file like this:
+
 on: push
 jobs:
 myJob:
@@ -34,8 +32,8 @@ steps:
 id: Cryptosoft-Nutrition-label
 uses: CryptosoftInc/Cryptosoft-Nutrition-label@master
 with:
-<input_name_1>: <value>
-<input_name_2>: <value>
+  root_directory: 'path/to/root/directory'
+  
 ## License
 
 [MIT](LICENSE.md)
