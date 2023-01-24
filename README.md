@@ -18,9 +18,9 @@ root directory
 Output , default is web link
 
 ## Usage
-
+```
 uses: CryptosoftInc/Cryptosoft-Nutrition-label@master
-
+```
 ## To use this action, add it to your workflow file like this:
 
 ```
