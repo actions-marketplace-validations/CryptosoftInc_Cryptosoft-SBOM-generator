@@ -22,6 +22,8 @@ Output , default is web link
 uses: CryptosoftInc/Cryptosoft-Nutrition-label@master
 
 ## To use this action, add it to your workflow file like this:
+
+```
 on: push
 jobs:
   myJob:
@@ -33,7 +35,7 @@ jobs:
       with:
         root_directory: 'path/to/root/directory'
 
-  
+```
 ## License
 
 [MIT](LICENSE.md)
