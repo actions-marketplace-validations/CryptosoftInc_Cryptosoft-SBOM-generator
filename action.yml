@@ -2,8 +2,8 @@ name: 'Cryptosoft Generate Nutrition label from SBOM'
 author: Akshay kumar
 description: 'Github action to generate a Nutrition label from SBOM'
 inputs:
-  root_directory:
-    description: 'The root directory of the repository'
+  dturl:
+    description: 'Dependency URL of your organisation'
     required: true
 outputs:
   website_link:
