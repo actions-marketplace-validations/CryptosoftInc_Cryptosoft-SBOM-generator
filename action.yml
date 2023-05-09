@@ -2,21 +2,21 @@ name: CryptosoftInc
 description: This action builds a CycloneDX Format Software Bill of Materials (SBOM) for a repository and sends it to a OWASP DT Track.
 inputs:
   dt-url:
-    description: 'The URL of the dt-api server to send the SBOM to OWASP DT Track'
+    description: 'The URL of the Dependency-Track API server to send the SBOM a OWASP DT Track.
     required: true
   api-key:
-    description: 'The API key used to authenticate with the dt-api server.'
+    description: 'The API key used to authenticate with the Dependency-Track API server.'
     required: true
 runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2    
-    -  id: determine-language
+    - id: determine-language
       run: | 
         LANGUAGE=$(find . -type f -name "*.*" | sed 's/.*\.//' | sort | uniq -c | sort -nr | head -1 | awk '{print $2}')
         echo "language=${LANGUAGE}" >> $GITHUB_ENV
         echo "$LANGUAGE"
-        echo "Language is $language"   
+        echo "Language is $LANGUAGE"   
     - if: ${{ env.language == 'js' }}
       run: npm install  
     - id: sbom
@@ -25,7 +25,7 @@ runs:
         output: './reports/bom.xml'
     - id: saveBom
       run: |    
-         echo -n  "$(cat './reports/bom.xml')"  > output.xml   
+        echo -n  "$(cat './reports/bom.xml')"  > output.xml   
       env:
         API_KEY: ${{ inputs.api-key }}
         DT_URL: ${{ inputs.dt-url }}
@@ -44,3 +44,4 @@ runs:
           -F "projectName=$REPO_NAME" \
           -F "projectVersion=$VERSION" \
           -F "bom=@output.xml"
+
