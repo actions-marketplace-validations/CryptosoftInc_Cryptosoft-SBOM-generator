@@ -8,7 +8,7 @@ inputs:
 outputs:
   website_link:
     description: 'The link to the website'
-    required: true
+    required: false
 runs:
   using: 'node14'
    main: '.github/workflows/nutrition.yml'
