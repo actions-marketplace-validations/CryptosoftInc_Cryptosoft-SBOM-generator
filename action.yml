@@ -53,3 +53,6 @@ steps:
         -F "projectName=$REPO_NAME" \
         -F "projectVersion=$VERSION" \
         -F "bom=@${{ inputs.output-file }}"
+    branding:
+      icon: 'award'
+      color: 'green'   
