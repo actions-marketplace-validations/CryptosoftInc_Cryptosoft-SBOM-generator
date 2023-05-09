@@ -1,6 +1,5 @@
 name: CryptosoftInc
-description: |
-  This action builds a CycloneDX Software Bill of Materials (SBOM) for a repository and sends it to a dt-api server.
+description: This action builds a CycloneDX Software Bill of Materials (SBOM) for a repository and sends it to a dt-api server.
 inputs:
   dt-url:
     description: 'The URL of the dt-api server to send the SBOM to.'
