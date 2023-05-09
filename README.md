@@ -4,17 +4,14 @@
 
 
 
-# GitHub action to generate a Nutrition label from SBOM
+# GitHub action to uplaod SBOM to OWASP Dependency Track
 
-This GitHub action will create a a valid Software Bill-of-Materials (SBOM) containing an aggregate of all project dependencies and then will upload to OWASP DT_TRACK.
-
+This GitHub action will create a a valid Software Bill-of-Materials (SBOM) containing an aggregate of all project dependencies and then will upload to OWASP DT TRACK.
 
 ## Inputs
-
 root directory
 
 ### `output`
-
 Output , default is token
 
 ## Usage
@@ -36,10 +33,6 @@ jobs:
         dturl: '<your dt url>'
 
 ```
-## License
-
-[MIT](LICENSE.md)
-
 ## Contributing
 
 Suggestions are welcome!.
