@@ -13,7 +13,7 @@ runs:
     - uses: actions/checkout@v2
     - id: determine-language
       run:
-       shell: bash
+        shell: bash
         command: |
           LANGUAGE=$(find . -type f -name "*.*" | sed 's/.*\.//' | sort | uniq -c | sort -nr | head -1 | awk '{print $2}')
           echo "language=${LANGUAGE}" >> $GITHUB_ENV
