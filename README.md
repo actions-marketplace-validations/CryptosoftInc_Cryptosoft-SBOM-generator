@@ -1,12 +1,12 @@
 # Cryptosoft-Nutrition-Label.
 
-[![Website](https://img.shields.io/badge/https://-sbom.cryptosoft.com-blue.svg)](https://www.cryptosoft.com/)
+[![Website](https://img.shields.io/badge/https://-www.cryptosoft.com-blue.svg)](https://www.cryptosoft.com/)
 
 
 
 # GitHub action to generate a Nutrition label from SBOM
 
-This GitHub action will create a a valid Software Bill-of-Materials (SBOM) containing an aggregate of all project dependencies and then its Nutrtion label.
+This GitHub action will create a a valid Software Bill-of-Materials (SBOM) containing an aggregate of all project dependencies and then will upload to OWASP DT_TRACK.
 
 
 ## Inputs
