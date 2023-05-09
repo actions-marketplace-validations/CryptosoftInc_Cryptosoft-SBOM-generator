@@ -1,4 +1,4 @@
-name: Build SBOM and send to dt-api
+name: Cryptosoft
 description: |
   This action builds a CycloneDX Software Bill of Materials (SBOM) for a repository and sends it to a dt-api server.
 inputs:
@@ -14,7 +14,6 @@ inputs:
     required: false
 steps:
   - uses: actions/checkout@v2
-
   - name: Determine programming language
     id: determine-language
     run: |
@@ -33,7 +32,6 @@ steps:
     uses: AppThreat/cdxgen-action@v1
     with:
       output: ${{ inputs.output-file }}
-
   - name: Send SBOM to dt-api server
     env:
       API_KEY: ${{ inputs.api-key }}
