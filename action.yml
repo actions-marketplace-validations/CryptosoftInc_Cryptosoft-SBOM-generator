@@ -1,13 +1,13 @@
-name: 'Cryptosoft Generate Nutrition label from SBOM'
-author: Akshay kumar
-description: 'Github action to generate a Nutrition label from SBOM'
+name: 'Cryptosoft'
+author: Cryptosoft
+description: 'Cryptosoft Generate SBOM and upload to OWASP Dependency Track'
 inputs:
   dturl:
-    description: 'Dependency URL of your organisation'
+    description: 'OWASP Dependency Track URL of your organisation'
     required: true
 outputs:
-  website_link:
-    description: 'The link to the website'
+  token:
+    description: 'Generated token that SBOM is uploaded'
     required: false
 runs:
   using: 'node14'
