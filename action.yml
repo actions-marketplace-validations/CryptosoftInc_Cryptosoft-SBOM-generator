@@ -1,5 +1,5 @@
 name: CryptosoftInc
-description: This action builds a CycloneDX Format Software Bill of Materials (SBOM) for a repository and sends it to a OWASP DT Track.
+description: This action builds a CycloneDX Format Software Bill of Materials (SBOM) for a repository and sends it to a OWASP
 inputs:
   dt-url:
     description: 'The URL of the Dependency-Track API server to send the SBOM a OWASP DT Track.
