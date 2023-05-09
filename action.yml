@@ -1,4 +1,4 @@
-name: 'Cryptosoft'
+name: Cryptosoft
 author: Cryptosoft
 description: 'Cryptosoft Generate SBOM and upload to OWASP Dependency Track'
 inputs:
