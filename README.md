@@ -4,7 +4,7 @@
 
 
 
-# GitHub action to uplaod SBOM to OWASP Dependency Track
+# GitHub action to upload SBOM to OWASP Dependency Track
 
 This GitHub action will create a a valid Software Bill-of-Materials (SBOM) containing an aggregate of all project dependencies and then will upload to OWASP DT TRACK.
 
