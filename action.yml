@@ -1,12 +1,12 @@
 name: CryptosoftInc
-description: This action builds a CycloneDX Software Bill of Materials (SBOM) for a repository and sends it to a dt-api server.
+description: This action builds a CycloneDX Format Software Bill of Materials (SBOM) for a repository and sends it to a OWASP DT Track.
 inputs:
   dt-url:
-    description: 'The URL of the dt-api server to send the SBOM to.'
+    description: 'The URL of the dt-api server to send the SBOM to OWASP DT Track'
     required: true
   api-key:
     description: 'The API key used to authenticate with the dt-api server.'
-    required: true 
+    required: true
 runs:
   using: 'composite'
 steps:
@@ -28,11 +28,11 @@ steps:
     id: sbom
     uses: AppThreat/cdxgen-action@v1
     with:
-      output: ${{ inputs.output-file }}
+      output: './reports/bom.xml'
   - name: Save SBOM to new file 
     id: saveBom
     run: |    
-       echo -n "$(cat ${{ inputs.output-file }})" > output.xml  
+       echo -n  "$(cat './reports/bom.xml')"  > output.xml  
   - name: Send SBOM to dt-api server
     env:
       API_KEY: ${{ inputs.api-key }}
@@ -51,4 +51,4 @@ steps:
         -F "autoCreate=true" \
         -F "projectName=$REPO_NAME" \
         -F "projectVersion=$VERSION" \
-        -F "bom=@${{ inputs.output-file }}"
+        -F "bom=@output.xml"
