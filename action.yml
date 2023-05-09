@@ -7,10 +7,6 @@ inputs:
   api-key:
     description: 'The API key used to authenticate with the dt-api server.'
     required: true 
-  output-file:
-    description: 'The path and filename to save the SBOM output file.'
-    required: false
-    default: './reports/bom.xml'
 runs:
   using: 'composite'
 steps:
