@@ -15,11 +15,11 @@ root directory
 
 ### `output`
 
-Output , default is web link
+Output , default is token
 
 ## Usage
 ```
-uses: CryptosoftInc/Cryptosoft-Nutrition-label@master
+uses: CryptosoftInc/Cryptosoft-SBOM-generator@1.0.0
 ```
 ## To use this action, add it to your workflow file like this:
 
@@ -29,11 +29,11 @@ jobs:
   myJob:
     runs-on: ubuntu-latest
     steps:
-    - name: Cryptosoft-Nutrition-label
-      id: Cryptosoft-Nutrition-label
-      uses: CryptosoftInc/Cryptosoft-Nutrition-label@master
+    - name:Cryptosoft-SBOM-generator
+      id: Cryptosoft-SBOM-generator
+      uses: CryptosoftInc/Cryptosoft-SBOM-generator@1.0.0
       with:
-        root_directory: 'path/to/root/directory'
+        dturl: '<your dt url>'
 
 ```
 ## License
