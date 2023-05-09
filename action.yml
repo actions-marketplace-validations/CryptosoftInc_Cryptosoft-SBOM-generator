@@ -7,7 +7,6 @@ inputs:
   api-key:
     description: 'The API key used to authenticate with the Dependency-Track API server.'
     required: true
-runs:
   defaults:
     run:
       shell: bash
