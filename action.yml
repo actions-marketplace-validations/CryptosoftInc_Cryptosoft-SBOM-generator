@@ -1,5 +1,5 @@
 name: CryptosoftInc CycloneDX SBOM Generator
-description: This action builds a CycloneDX Format Software Bill of Materials (SBOM) for a repository and sends it to an OWASP Dependency-Track server.
+description: This action builds a CycloneDX Format SBOM for a repository and sends it to an OWASP Dependency-Track server.
 inputs:
   dt-url:
     description: 'The URL of the OWASP Dependency-Track API server to send the SBOM to.'
