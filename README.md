@@ -8,11 +8,12 @@
 
 This GitHub action will create a a valid Software Bill-of-Materials (SBOM) containing an aggregate of all project dependencies and then will upload to OWASP DT TRACK.
 
+
 ## Inputs
-root directory
+Dependency Track Url an It's API_KEY
 
 ### `output`
-Output , default is token
+Output , default is token when SBOM is successfully Uploaded to OWASP DT TRACK.
 
 ## Usage
 ```
@@ -30,9 +31,9 @@ jobs:
       id: Cryptosoft-SBOM-generator
       uses: CryptosoftInc/Cryptosoft-SBOM-generator@1.0.0
       with:
-        dturl: '<your dt url>'
-
+        dturl: <your dt url>
+        api-key: DT Instance api key
 ```
-## Contributing
+## Contribution
 
 Suggestions are welcome!.
