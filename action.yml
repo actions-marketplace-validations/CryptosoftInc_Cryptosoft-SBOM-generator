@@ -10,7 +10,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v2    
+    - uses: actions/checkout@v2
     - id: determine-language
       run:
         shell: bash
@@ -19,6 +19,7 @@ runs:
           echo "language=${LANGUAGE}" >> $GITHUB_ENV
           echo "$LANGUAGE"
           echo "Language is $LANGUAGE"
+      shell: bash
     - if: ${{ env.language == 'js' }}
       run: npm install  
       shell: bash
