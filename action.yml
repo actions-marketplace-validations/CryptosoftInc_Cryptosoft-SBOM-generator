@@ -1,4 +1,7 @@
 name: CryptosoftInc
+ branding:
+      icon: 'award'
+      color: 'green' 
 description: |
   This action builds a CycloneDX Software Bill of Materials (SBOM) for a repository and sends it to a dt-api server.
 inputs:
@@ -53,6 +56,4 @@ steps:
         -F "projectName=$REPO_NAME" \
         -F "projectVersion=$VERSION" \
         -F "bom=@${{ inputs.output-file }}"
-    branding:
-      icon: 'award'
-      color: 'green'   
+     
