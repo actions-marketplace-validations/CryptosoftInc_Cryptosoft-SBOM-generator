@@ -19,7 +19,7 @@ Output , default is token when SBOM is successfully Uploaded to OWASP DT TRACK.
 ```
 uses: CryptosoftInc/Cryptosoft-SBOM-generator@1.0.0
 ```
-## To use this action, add it to your workflow file like this:
+## To use this action, paste below file file in your project directory wirh .github/workflows/<Name of the File>.yaml:
 
 ```
 on: push
