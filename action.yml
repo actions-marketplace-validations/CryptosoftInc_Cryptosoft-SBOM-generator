@@ -7,11 +7,7 @@ inputs:
     required: true
   api-key:
     description: 'The API key used to authenticate with the dt-api server.'
-    required: true
-  output-file:
-    description: 'Token.'
-    default: 'token for success'
-    required: false
+    required: true 
   runs:
   using: 'composite'
 steps:
@@ -33,7 +29,11 @@ steps:
     id: sbom
     uses: AppThreat/cdxgen-action@v1
     with:
-      output: ${{ inputs.output-file }}
+      output: './reports/bom.xml'
+  - name: Save SBOM to new file 
+    id: saveBom
+    run: |    
+       echo -n "$(cat './reports/bom.xml')"  > output.xml  
   - name: Send SBOM to dt-api server
     env:
       API_KEY: ${{ inputs.api-key }}
@@ -46,7 +46,7 @@ steps:
       else
         VERSION="1.0.0"
       fi
-      curl -k -X "POST" "$DT_URL" \
+      curl -k -X "POST" '$DT_URL' \
         -H "Content-Type: multipart/form-data" \
         -H "X-Api-Key: $API_KEY" \
         -F "autoCreate=true" \
