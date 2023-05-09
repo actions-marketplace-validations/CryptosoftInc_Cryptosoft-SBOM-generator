@@ -1,6 +1,6 @@
 # Cryptosoft-Nutrition-Label.
 
-[![Website](https://img.shields.io/badge/https://-sbom.cryptosoft.com-blue.svg)](https://sbom.cryptosoft.com)
+[![Website](https://img.shields.io/badge/https://-sbom.cryptosoft.com-blue.svg)](https://www.cryptosoft.com/)
 
 
 
