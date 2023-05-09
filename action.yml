@@ -12,6 +12,8 @@ inputs:
     description: 'Token.'
     default: 'token for success'
     required: false
+  runs:
+  using: 'composite'
 steps:
   - uses: actions/checkout@v2
   - name: Determine programming language
