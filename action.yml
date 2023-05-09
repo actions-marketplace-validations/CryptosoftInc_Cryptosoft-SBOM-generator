@@ -1,6 +1,5 @@
 name: CryptosoftInc
 description: This action builds a CycloneDX Format Software Bill of Materials (SBOM) for a repository and sends it to a OWASP DT server.
-
 inputs:
   dt-url:
     description: 'The URL of the Dependency-Track API server to send the SBOM.'
@@ -8,12 +7,10 @@ inputs:
   api-key:
     description: 'The API key used to authenticate with the Dependency-Track API server.'
     required: true
-
 runs:
   defaults:
     run:
       shell: bash
-
   using: "composite"
   steps:
     - uses: actions/checkout@v2    
@@ -36,7 +33,6 @@ runs:
         env:
           API_KEY: ${{ inputs.api-key }}
           DT_URL: ${{ inputs.dt-url }}
-        
       - run: |
           REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
           TAG_REF=${{ github.ref }}
