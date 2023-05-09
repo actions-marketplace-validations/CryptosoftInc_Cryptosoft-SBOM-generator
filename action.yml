@@ -11,4 +11,4 @@ outputs:
     required: false
 runs:
   using: 'node14'
-   main: '.github/workflows/nutrition.yml'
+   main: '.github/workflows/Nutrition.yml'
