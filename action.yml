@@ -11,16 +11,7 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
-    - id: determine-language
-      run:
-        shell: bash
-        command: |
-          LANGUAGE=$(find . -type f -name "*.*" | sed 's/.*\.//' | sort | uniq -c | sort -nr | head -1 | awk '{print $2}')
-          echo "language=${LANGUAGE}" >> $GITHUB_ENV
-          echo "$LANGUAGE"
-          echo "Language is $LANGUAGE"
-    - if: ${{ env.language == 'js' }}
-      run: npm install
+    - run: npm install
       shell: bash
     - id: sbom
       uses: AppThreat/cdxgen-action@v1
