@@ -9,10 +9,12 @@ inputs:
     required: true
 runs:
   using: "composite"
+    defaults:
+    run:
+      shell: bash
   steps:
     - uses: actions/checkout@v2
     - id: determine-language
-      shell: bash
       run:
         command: |
           LANGUAGE=$(find . -type f -name "*.*" | sed 's/.*\.//' | sort | uniq -c | sort -nr | head -1 | awk '{print $2}')
@@ -21,7 +23,6 @@ runs:
           echo "Language is $LANGUAGE"
     - if: ${{ env.language == 'js' }}
       run: npm install
-      shell: bash
     - id: sbom
       uses: AppThreat/cdxgen-action@v1
       with:
@@ -32,7 +33,6 @@ runs:
       env:
         API_KEY: ${{ inputs.api-key }}
         DT_URL: ${{ inputs.dt-url }}
-      shell: bash
     - run: |
         REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
         TAG_REF=${{ github.ref }}
@@ -48,4 +48,3 @@ runs:
           -F "projectName=$REPO_NAME" \
           -F "projectVersion=$VERSION" \
           -F "bom=@output.xml"
-      shell: bash
