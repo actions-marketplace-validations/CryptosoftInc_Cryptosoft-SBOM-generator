@@ -1,43 +1,38 @@
-name: CryptosoftInc CycloneDX SBOM Generator
-description: This action builds a CycloneDX Format SBOM for a repository and sends it to an OWASP Dependency-Track server.
+name: CryptosoftInc
+description: This action builds a CycloneDX Format Software Bill of Materials (SBOM) for a repository and sends it to a OWASP DT server.
 inputs:
   dt-url:
-    description: 'The URL of the OWASP Dependency-Track API server to send the SBOM to.'
+    description: 'The URL of the Dependency-Track API server to send the SBOM.'
     required: true
   api-key:
-    description: 'The API key used to authenticate with the OWASP Dependency-Track API server.'
+    description: 'The API key used to authenticate with the Dependency-Track API server.'
     required: true
 runs:
-  using: composite
+  using: "composite"
   steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Determine programming language
-      id: determine-language
-      run: |
+    - uses: actions/checkout@v2    
+    - id: determine-language
+      run: | 
         LANGUAGE=$(find . -type f -name "*.*" | sed 's/.*\.//' | sort | uniq -c | sort -nr | head -1 | awk '{print $2}')
         echo "language=${LANGUAGE}" >> $GITHUB_ENV
-        echo "Language is $LANGUAGE"
-    - name: Install dependencies for Node.js
-      if: ${{ env.language == 'js' }}
-      run: npm install
-    - name: Create SBOM with CycloneDX
-      id: sbom
+        echo "$LANGUAGE"
+        echo "Language is $LANGUAGE"   
+        shell: bash
+    - if: ${{ env.language == 'js' }}
+      run: npm install  
+      shell: bash
+    - id: sbom
       uses: AppThreat/cdxgen-action@v1
       with:
         output: './reports/bom.xml'
-    - name: Save SBOM to new file
-      id: saveBom
-      run: |
-        echo -n "$(cat './reports/bom.xml')"  > output.xml
+    - id: saveBom
+      run: |    
+        echo -n  "$(cat './reports/bom.xml')"  > output.xml   
       env:
         API_KEY: ${{ inputs.api-key }}
         DT_URL: ${{ inputs.dt-url }}
-    - name: Send SBOM to OWASP Dependency-Track server
-      env:
-        API_KEY: ${{ inputs.api-key }}
-        DT_URL: ${{ inputs.dt-url }}
-      run: |
+      shell: bash
+    - run: |
         REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
         TAG_REF=${{ github.ref }}
         if [[ "$TAG_REF" == "refs/tags/"* ]]; then
@@ -52,3 +47,4 @@ runs:
           -F "projectName=$REPO_NAME" \
           -F "projectVersion=$VERSION" \
           -F "bom=@output.xml"
+      shell: bash
