@@ -11,8 +11,8 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
-      shell: bash
     - id: determine-language
+      shell: bash
       run:
         command: |
           LANGUAGE=$(find . -type f -name "*.*" | sed 's/.*\.//' | sort | uniq -c | sort -nr | head -1 | awk '{print $2}')
