@@ -1,4 +1,4 @@
-# Cryptosoft-action.
+# Cryptosoft
 
 [![Website](https://img.shields.io/badge/https://-www.cryptosoft.com-blue.svg)](https://www.cryptosoft.com/)
 
